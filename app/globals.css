@@ -6,4 +6,8 @@
   .side_nav_btn {
     @apply font-semibold hover:bg-slate-200 mb-2 py-1 px-5 rounded-lg text-left duration-150
   }
+
+  .auth_input{
+    @apply w-full  bg-neutral-200 h-10 rounded-2xl px-4
+  }
 }
