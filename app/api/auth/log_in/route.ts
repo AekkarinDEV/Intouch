@@ -15,22 +15,20 @@ export async function POST(req:NextRequest) {
         const indb = await client.db("auth").collection("users").findOne({username: data.get("username")})
         console.log(indb);
         if(indb == null){
-            return new NextResponse("user not exist", {
+            return  NextResponse.json("user not exist", {
                 status:200
             })
         }
-
-
         if(await bcrypt.compare(data.get("password"),indb.password)){
-            return new NextResponse(indb.token)
+            return  NextResponse.json(indb.token)
         }else{
-            return new NextResponse("wrong password",{
+            return  NextResponse.json("wrong password",{
                 status: 200
             })
         }
     }catch{
         console.log(err);
-        return new NextResponse('Somthing wrong with server',{
+        return  NextResponse.json({message:'Somthing wrong with server'},{
           status: 400,
         })
     }finally{

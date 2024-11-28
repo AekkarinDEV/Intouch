@@ -8,15 +8,22 @@ const page = () => {
     e.preventDefault();
     const username = document.getElementById("login_username").value
     const password = document.getElementById("login_password").value
-    
-   await fetch("http://localhost:3000/api/auth/log_in",{
-        body: `username=${username}&password=${password}`,
-        headers: {
-            "Content-Type": "application/x-www-form-urlencoded"
-        },
-        method: "post"
-    })
-  }
+    console.log("fecthing")
+   
+    try{
+       const token =  await fetch("http://localhost:3000/api/auth/log_in",{
+             body: `username=${username}&password=${password}`,
+             headers: {
+                 "Content-Type": "application/x-www-form-urlencoded"
+             },
+             method:"post"
+         })
+        console.log(await token.json());
+    }catch{
+
+    }
+}
+  
 
   return (
     <div className='w-full h-full bg-slate-100 flex justify-center items-center'>
