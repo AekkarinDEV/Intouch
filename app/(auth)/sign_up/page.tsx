@@ -8,12 +8,12 @@ const page = () => {
             <header>
             <h1 className='text-2xl font-bold mb-3'>Create account with Intouch!</h1>
             </header>
-            <form action="http://localhost:3000/api/auth" className='flex flex-col w-10/12 gap-3  items-center  mx-auto ' method='POST'>
+            <form action="http://localhost:3000/api/auth" className='flex flex-col w-10/12 gap-3  items-center  mx-auto ' method='POST' encType="multipart/form-data">
                 <label htmlFor="profile_pic" className='w-full h-32 rounded-xl bg-neutral-100 text-center border-dotted 
                                                         border-2 border-neutral-600 items-center'>
                     profile picture
                 </label>
-                    <input type="file" id='profile_pic'  className='w-52 hidden' name="userpic"/>
+                    <input type="file" id='profile_pic'  className='w-52' name="image"/>
                 <input type="text" className='auth_input' placeholder='username' name="name" />
                 <input type="text" className='auth_input' placeholder='password' name="password"/>
                 <input type="text" className='auth_input' placeholder='confirm password' name="cpassword"/>
