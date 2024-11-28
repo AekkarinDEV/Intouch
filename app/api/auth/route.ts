@@ -65,7 +65,7 @@ export  async function POST(req:NextRequest){
       status: 400,
     })
   }finally{
-    client.close();
+    await client.close();
   }
 }
 
