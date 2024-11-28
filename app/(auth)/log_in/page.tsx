@@ -11,14 +11,21 @@ const page = () => {
     console.log("fecthing")
    
     try{
-       const token =  await fetch("http://localhost:3000/api/auth/log_in",{
+       const data =  await fetch("http://localhost:3000/api/auth/log_in",{
              body: `username=${username}&password=${password}`,
              headers: {
                  "Content-Type": "application/x-www-form-urlencoded"
              },
              method:"post"
          })
-        console.log(await token.json());
+        const res = await data.json();
+        console.log(typeof(res))
+        if(res == "user not exist" || res === "wrong password"){
+            alert(res);
+        }else{
+            sessionStorage.setItem("web_token" , res);
+            console.log(res)
+        }
     }catch{
 
     }
