@@ -3,7 +3,7 @@ import Image from 'next/image'
 
 const Post = ({post_id}) => {
   return (
-    <div className='w-3/6'>
+    <div className='lg:w-3/6 w-11/12 md:w-3/5' >
         <div className='bg-slate-50  pt-4  rounded-2xl overflow-clip '>
             <header className='flex gap-3 text-xl pb-1 font-semibold justify-between items-center px-5'>
                 <div className='flex gap-3'>

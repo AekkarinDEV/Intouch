@@ -14,7 +14,7 @@ const page = () => {
                     profile picture
                 </label>
                     <input type="file" id='profile_pic'  className='w-52' name="image"/>
-                <input type="text" className='auth_input' placeholder='username' name="name" />
+                <input type="text" className='auth_input' placeholder='username' name="username" />
                 <input type="text" className='auth_input' placeholder='password' name="password"/>
                 <input type="text" className='auth_input' placeholder='confirm password' name="cpassword"/>
                 <p  className='self-start'>already have an acount? <Link className='text-blue-600' href={"../log_in"}>log in</Link></p>

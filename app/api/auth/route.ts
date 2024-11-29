@@ -4,6 +4,8 @@ import { MongoClient } from "mongodb";
 import { v4 as uuidv4 } from 'uuid'
 import fs from "node:fs/promises"
 import { log } from "node:console";
+import { redirect } from "next/dist/server/api-utils";
+import { Redirect } from "next";
 const bcrypt = require("bcrypt");
 
 
@@ -25,6 +27,7 @@ export  async function POST(req:NextRequest){
 
       //check if user already exist
       const isItExist = await client.db("auth").collection("users").findOne({username: username})
+      console.log(isItExist)
     if(isItExist !== null && isItExist.username == username){
       return new NextResponse("user alredy exist",{
         status:400,
@@ -70,5 +73,6 @@ export  async function POST(req:NextRequest){
 }
 
 export async function GET(req:NextRequest) {
-    console.log(req.body)
+    console.log(await req.searchParams)
+    return NextResponse.json("bro")
 }

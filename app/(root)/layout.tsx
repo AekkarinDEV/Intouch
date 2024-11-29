@@ -1,7 +1,9 @@
+
 import type { Metadata } from "next";
 import Topbar from "../components/home/Topbar";
 import Sidenav from "../components/home/Sidenav";
 import Recommend from "../components/home/Recommend";
+import Mobilenav from "../components/home/Mobilenav";
 
 
 
@@ -19,12 +21,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <>
+    <div>
     <Topbar/>
     <Sidenav/>
         {children}
-    <Recommend/>
-    </>
+    {/* <Recommend/> */}
+    <Mobilenav/>
+    </div>
      
   );
 }
