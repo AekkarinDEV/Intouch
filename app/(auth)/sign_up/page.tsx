@@ -1,14 +1,20 @@
+"use client"
 import React from 'react'
 import Link from 'next/link'
+import { useRouter } from 'next/navigation'
 
 const page = () => {
+    const route = useRouter();
+    const onSub = () =>{
+        setTimeout(route.push("/log_in"),3000)
+    }
   return (
     <div className='w-full h-full flex justify-center items-center '>
         <div className='bg-slate-50 shadow px-6 w-1/3 pt-3 rounded-xl pb-7'>
             <header>
             <h1 className='text-2xl font-bold mb-3'>Create account with Intouch!</h1>
             </header>
-            <form action="http://localhost:3000/api/auth" className='flex flex-col w-10/12 gap-3  items-center  mx-auto ' method='POST' encType="multipart/form-data">
+            <form action="http://localhost:3000/api/auth" onSubmit={onSub} className='flex flex-col w-10/12 gap-3  items-center  mx-auto ' method='POST' encType="multipart/form-data">
                 <label htmlFor="profile_pic" className='w-full h-32 rounded-xl bg-neutral-100 text-center border-dotted 
                                                         border-2 border-neutral-600 items-center'>
                     profile picture

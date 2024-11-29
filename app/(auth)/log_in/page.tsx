@@ -2,8 +2,11 @@
 import React from 'react'
 import Link from 'next/link'
 
+import { useRouter } from 'next/navigation'
+
 
 const page = () => {
+const route = useRouter();
   const onLoginSubmit= async(e) => {
     e.preventDefault();
     const username = document.getElementById("login_username").value
@@ -28,6 +31,8 @@ const page = () => {
             sessionStorage.setItem("profile_pic" , res.profile_pic);
             console.log(res)
         }
+        route.push("/")
+        
     }catch{
 
     }

@@ -29,8 +29,8 @@ export  async function POST(req:NextRequest){
       const isItExist = await client.db("auth").collection("users").findOne({username: username})
       console.log(isItExist)
     if(isItExist !== null && isItExist.username == username){
-      return new NextResponse("user alredy exist",{
-        status:400,
+      return  NextResponse.json("user alredy exist",{
+        status:200,
       }
 
       )
@@ -59,7 +59,7 @@ export  async function POST(req:NextRequest){
 
 
 
-      return new NextResponse('All ok', {
+      return  NextResponse.json('All ok', {
           status: 200,
     });
   }catch(err){
