@@ -20,7 +20,11 @@ export async function POST(req:NextRequest) {
             })
         }
         if(await bcrypt.compare(data.get("password"),indb.password)){
-            return  NextResponse.json(indb.token)
+            return  NextResponse.json({
+                token: indb.token,
+                username: indb.username,
+                profile_pic: indb.profile_pic
+            })
         }else{
             return  NextResponse.json("wrong password",{
                 status: 200

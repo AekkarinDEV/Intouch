@@ -17,7 +17,7 @@ const Right = ({status,user}:boolean) => {
 
         return(
             <div className='flex w-30 items-center gap-3 '>
-                <p>username</p>
+                <p>{sessionStorage.getItem("username")}</p>
                 <div className='w-11'>
                     <Image
                         src={"/profile_pic.jpg"}

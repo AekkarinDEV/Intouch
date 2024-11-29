@@ -19,11 +19,13 @@ const page = () => {
              method:"post"
          })
         const res = await data.json();
-        console.log(typeof(res))
+        console.log(res)
         if(res == "user not exist" || res === "wrong password"){
             alert(res);
         }else{
-            sessionStorage.setItem("web_token" , res);
+            sessionStorage.setItem("web_token" , res.token);
+            sessionStorage.setItem("username" , res.username);
+            sessionStorage.setItem("profile_pic" , res.profile_pic);
             console.log(res)
         }
     }catch{
